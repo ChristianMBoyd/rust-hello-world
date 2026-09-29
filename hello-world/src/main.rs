@@ -1,5 +1,13 @@
+use std::fmt;
+
 #[derive(Debug)]
 struct Value(i32);
+
+impl fmt::Display for Value {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
 
 fn main() {
     println!("Hello world!");
@@ -15,4 +23,5 @@ fn main() {
     let value = Value(42);
     println!("Here's a debug representation of a struct: {:?}", value);
     println!("Here's a pretty debug representation of the same struct: {:#?}", value);
+    println!("Here's a display representation of the same struct: {}", value);
 }
